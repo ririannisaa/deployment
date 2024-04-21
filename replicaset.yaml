@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  namespace: <nama_namespace>  # Ganti <nama_namespace> dengan namespace yang sesuai
+spec:
+  replicas: 3  # Ganti dengan jumlah replika yang diinginkan
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp-container
+        image: nginx:latest  # Ganti dengan gambar kontainer aplikasi Anda
+        ports:
+        - containerPort: 80  # Ganti dengan port aplikasi Anda
